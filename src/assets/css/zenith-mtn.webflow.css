@@ -1,0 +1,438 @@
+.itex-navbar {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: auto;
+  bottom: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 70px;
+  padding-right: 8%;
+  padding-left: 8%;
+}
+
+.itex-banner {
+  height: 90vh;
+  background-image: url('../img/policebanner.jpg');
+  background-position: 0px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.itex-banner2 {
+  height: 90vh;
+  background-image: url('../img/Rectangle-4.jpg');
+  background-position: 0px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.itex-banner-cover {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-right: 12%;
+  padding-left: 12%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.72);
+  color: #fff;
+}
+
+.itex-brand {
+  width: 100px;
+  height: 60px;
+}
+
+.brand-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.itex-banner-text {
+  margin-bottom: 20px;
+  font-size: 30px;
+  line-height: 45px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.itex-body {
+  font-family: Poppins, sans-serif;
+}
+
+.itex-banner-subtext {
+  margin-bottom: 40px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.banner-span-itex {
+  color: #62bf90;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.banner-span-mtn {
+  color: #ffc325;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.primary-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 14px 32px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  border-radius: 3px;
+  background-color: #132EBA;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.itex-faq {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 61px 8%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.itex-section-header {
+  margin-bottom: 19px;
+  color: #050038;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.section-img-misc {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.section-heading {
+  margin-bottom: 80px;
+}
+
+.faq-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.faq-col {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-top: 1px solid rgba(63, 19, 186, 0.4);
+  border-bottom: 1px none rgba(63, 19, 186, 0.4);
+}
+
+.faq-col-heading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 14px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.faq-col-header {
+  color: #050038;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.faq-toggle {
+  color: #050038;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.faq-paragraph {
+  padding: 12px 48px 0px;
+  color: rgba(5, 0, 56, 0.8);
+}
+
+.itex-form-section {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 0px;
+  padding-bottom: 100px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.itex-form {
+  width: 50%;
+  height: auto;
+  margin-top: -170px;
+  padding: 53px 72px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 1px 1px 7px -2px rgba(63, 19, 186, 0.12);
+}
+
+.itex-form-header {
+  margin-bottom: 50px;
+  color: #050038;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.itex-form-submit-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  background-color: #132EBA;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 991px) {
+ 
+  .itex-banner-subtext {
+    margin-bottom: 20px;
+  }
+
+  .itex-form {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  
+
+  .itex-banner-cover {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .itex-banner-text {
+    font-size: 16px;
+  }
+
+  .itex-banner-subtext {
+    font-size: 12px;
+  }
+
+  .banner-span-itex {
+    font-size: 20px;
+  }
+
+  .banner-span-mtn {
+    font-size: 20px;
+  }
+
+  .itex-faq {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .faq-row {
+    width: 100%;
+  }
+
+  .itex-form {
+    width: 90%;
+  }
+
+  .itex-form-header {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  
+  .itex-banner {
+    height: auto;
+  }
+
+  .itex-banner-cover {
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  .itex-section-header {
+    font-size: 20px;
+  }
+
+  .faq-col-header {
+    font-size: 14px;
+  }
+
+  .faq-toggle {
+    font-size: 18px;
+  }
+
+  .faq-paragraph {
+    padding-right: 13px;
+    padding-left: 13px;
+    font-size: 12px;
+  }
+
+  .text-block {
+    font-size: 14px;
+  }
+
+  .itex-form-section {
+    margin-top: -58px;
+  }
+
+  .itex-form {
+    width: 100%;
+    margin-top: 8px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .itex-form-header {
+    font-size: 16px;
+  }
+}
+
+@font-face {
+  font-family: 'Ionicons';
+  src: url('../fonts/ionicons.eot') format('embedded-opentype'), url('../fonts/ionicons.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
