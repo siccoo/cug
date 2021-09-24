@@ -104,7 +104,7 @@ export default function Faq (){
     <div className="itex-banner-cover">
       <div className="itex-banner-text"><span className="banner-span-itex">ITEX</span> in collaboration with <span className="banner-span-mtn">MTN </span>brings our Police officers the easiest and cheapest way to connect with family, friends and colleagues</div>
       <div className="itex-banner-subtext">We’re giving back to our heroic officers the best way we know how, make calls and browse the internet at the cheapest rates. All you need to do is register by clicking the “Register here” button below, provide a brief detail and you and your family can begin to connect easily.</div>
-      <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdWtQZz4FISeTyLMdBr0fSDWMZvpxVDNTVU6FBa9I6LxkRw0w/viewform" className="primary-btn">Register here</a>
+      <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfdVErwU7oSMoPlqUzqccJn_xZYUIMhJdSayChELuctLAEX0A/viewform?usp=sf_link" className="primary-btn">Register here</a>
     </div>
   </div>
   <div className="itex-faq wf-section">
