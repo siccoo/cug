@@ -15,8 +15,8 @@
 }
 
 .itex-banner {
-  height: 90vh;
-  background-image: url('../img/policebanner.jpg');
+  height: 80vh;
+  background-image: url("../img/policebanner.jpg");
   background-position: 0px 0px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -24,7 +24,7 @@
 
 .itex-banner2 {
   height: 90vh;
-  background-image: url('../img/Rectangle-4.jpg');
+  background-image: url("../img/Rectangle-4.jpg");
   background-position: 0px 0px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -75,7 +75,12 @@
   font-weight: 500;
   text-align: center;
 }
-
+@media screen and (max-width: 956px) {
+  .itex-banner-text {
+    line-height: 30px;
+    font-weight: 600;
+  }
+}
 .itex-body {
   font-family: Poppins, sans-serif;
 }
@@ -117,7 +122,7 @@
   -ms-flex: 0 auto;
   flex: 0 auto;
   border-radius: 3px;
-  background-color: #132EBA;
+  background-color: #132eba;
   color: #fff;
   font-weight: 600;
   text-decoration: none;
@@ -286,14 +291,42 @@
   -ms-flex-align: center;
   align-items: center;
   border-radius: 3px;
-  background-color: #132EBA;
+  background-color: #132eba;
   color: #fff;
   font-weight: 700;
   text-decoration: none;
 }
 
+.itex-footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+}
+.footer-title {
+  padding-right: 42px;
+}
+.footer-value {
+  padding-right: 64px;
+}
+.footer-icon {
+  margin-right: 14px;
+  font-family: Ionicons, sans-serif;
+  font-weight: 400;
+}
+
 @media screen and (max-width: 991px) {
- 
   .itex-banner-subtext {
     margin-bottom: 20px;
   }
@@ -304,8 +337,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  
-
   .itex-banner-cover {
     padding-right: 5%;
     padding-left: 5%;
@@ -343,10 +374,33 @@
   .itex-form-header {
     font-size: 16px;
   }
+
+  .itex-footer {
+    height: auto;
+    padding: 24px 5%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+  .footer-title {
+    padding-bottom: 20px;
+  }
+  .footer-value {
+    margin-bottom: 10px;
+  }
 }
 
 @media screen and (max-width: 479px) {
-  
   .itex-banner {
     height: auto;
   }
@@ -392,46 +446,72 @@
   .itex-form-header {
     font-size: 16px;
   }
+
+  .itex-footer {
+    height: auto;
+    padding: 26px 5%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+  .footer-title {
+    padding-bottom: 21px;
+  }
+  .footer-value {
+    margin-bottom: 10px;
+    padding-right: 0px;
+  }
 }
 
 @font-face {
-  font-family: 'Ionicons';
-  src: url('../fonts/ionicons.eot') format('embedded-opentype'), url('../fonts/ionicons.woff') format('woff');
+  font-family: "Ionicons";
+  src: url("../fonts/ionicons.eot") format("embedded-opentype"),
+    url("../fonts/ionicons.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Light.ttf') format('truetype');
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Medium.ttf') format('truetype');
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-BoldItalic.ttf') format('truetype');
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-BoldItalic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;

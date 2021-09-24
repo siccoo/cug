@@ -1,3 +1,4 @@
+import itexLogo from '../assets/img/itexlogo.svg'
 export default function Header(){
     return(
         <>
