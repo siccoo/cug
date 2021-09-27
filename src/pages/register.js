@@ -41,7 +41,15 @@ export default function Register() {
                 <TextField
                   className="textfield-control"
                   id="outlined-basic"
-                  label="Full Name *"
+                  label="Fist Name *"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+                <TextField
+                  className="textfield-control"
+                  id="outlined-basic"
+                  label="Last Name *"
                   InputLabelProps={{
                     shrink: true,
                   }}
