@@ -1,21 +1,33 @@
-import React from "react";
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import InputLabel from '@mui/material/InputLabel';
+import React, { useState } from "react";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import TextField from "@mui/material/TextField";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
 import Header from "../components/header";
 import Footer from "../components/footer";
+
+const initialValues = {
+  firstName: "",
+  lastName: "",
+
+}
+
 export default function Register() {
+
+  const [values, setValues] = useState();
+
   return (
     <div>
       <Header />
       <div class="itex-banner">
         <div class="itex-banner-cover">
-          <div class="itex-banner-text">Nigerian Police Force CUG registration form</div>
+          <div class="itex-banner-text">
+            Nigerian Police Force CUG registration form
+          </div>
         </div>
       </div>
       <div class="itex-form-section wf-section">
@@ -24,7 +36,6 @@ export default function Register() {
           <div>
             <form>
               <div className="radio-div">
-
                 <FormControl component="fieldset">
                   <RadioGroup
                     aria-label="gender"
@@ -32,8 +43,17 @@ export default function Register() {
                     name="radio-buttons-group"
                     row
                   >
-                    <FormControlLabel style={{ marginRight: '100px' }} value="female" control={<Radio style={{ color: '#132EBA' }} />} label="Individual" />
-                    <FormControlLabel value="male" control={<Radio style={{ color: '#132EBA' }} />} label="Corporation" />
+                    <FormControlLabel
+                      style={{ marginRight: "100px" }}
+                      value="female"
+                      control={<Radio style={{ color: "#132EBA" }} />}
+                      label="Individual"
+                    />
+                    <FormControlLabel
+                      value="male"
+                      control={<Radio style={{ color: "#132EBA" }} />}
+                      label="Corporation"
+                    />
                   </RadioGroup>
                 </FormControl>
               </div>
@@ -42,7 +62,7 @@ export default function Register() {
                 <TextField
                   className="textfield-control"
                   id="outlined-basic"
-                  label="Fist Name *"
+                  label="First Name *"
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -58,11 +78,19 @@ export default function Register() {
                 <TextField
                   className="textfield-control"
                   id="outlined-basic"
-                  label="NIN Number *"
+                  label="Phone Number *"
                   InputLabelProps={{
                     shrink: true,
                   }}
                 />
+                {/* <TextField
+                  className="textfield-control"
+                  id="outlined-basic"
+                  label="NIN Number *"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                /> */}
                 <TextField
                   className="textfield-control"
                   id="outlined-basic"
@@ -79,17 +107,16 @@ export default function Register() {
                     shrink: true,
                   }}
                 />
-                <TextField
+                {/* <TextField
                   className="textfield-control"
                   id="outlined-basic"
                   label="Sim Serial Number Address"
                   InputLabelProps={{
                     shrink: true,
                   }}
-                />
+                /> */}
 
                 <FormControl fullWidth>
-
                   <InputLabel id="demo-simple-select-label">Zone</InputLabel>
                   <Select
                     className="textfield-control"
@@ -102,11 +129,11 @@ export default function Register() {
                     <MenuItem value={20}>Zone 2</MenuItem>
                     <MenuItem value={30}>Zone 3</MenuItem>
                   </Select>
-
                 </FormControl>
-                <FormControl fullWidth>
-
-                  <InputLabel id="demo-simple-select-label">Divisional HQ</InputLabel>
+                {/* <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">
+                    Divisional HQ
+                  </InputLabel>
                   <Select
                     className="textfield-control"
                     labelId="demo-simple-select-label"
@@ -118,16 +145,16 @@ export default function Register() {
                     <MenuItem value={20}>HQ 2</MenuItem>
                     <MenuItem value={30}>HQ 3</MenuItem>
                   </Select>
-
-                </FormControl>
+                </FormControl> */}
               </div>
-
             </form>
           </div>
-          <button type="submit" class="itex-form-submit-btn">Submit</button>
+          <button type="submit" class="itex-form-submit-btn">
+            Submit
+          </button>
         </div>
       </div>
       <Footer />
     </div>
-  )
+  );
 }
