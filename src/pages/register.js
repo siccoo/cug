@@ -23,11 +23,11 @@ const initialValues = {
 export default function Register() {
   const [values, setValues] = useState(initialValues);
 
-  const handleInputChange = (e) => {
-    const [name, value] = e.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setValues({
       ...values,
-      [name] : value
+      [name]: value,
     });
   };
 
@@ -76,7 +76,7 @@ export default function Register() {
                   label="First Name *"
                   name="firstName"
                   value={values.firstName}
-                  onChange={handleInputChange}
+                  onChange={handleChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -87,7 +87,7 @@ export default function Register() {
                   label="Last Name *"
                   name="lastName"
                   value={values.lastName}
-                  onChange={handleInputChange}
+                  onChange={handleChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -98,7 +98,7 @@ export default function Register() {
                   label="Phone Number *"
                   name="phoneNumber"
                   value={values.phoneNumber}
-                  onChange={handleInputChange}
+                  onChange={handleChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -117,7 +117,7 @@ export default function Register() {
                   label="Police Staff ID *"
                   name="staffId"
                   value={values.staffId}
-                  onChange={handleInputChange}
+                  onChange={handleChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -128,7 +128,7 @@ export default function Register() {
                   label="Email Address"
                   name="email"
                   value={values.email}
-                  onChange={handleInputChange}
+                  onChange={handleChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -151,7 +151,7 @@ export default function Register() {
                     label="Zone"
                     name="zone"
                     value={values.zone}
-                    onChange={handleInputChange}
+                    onChange={handleChange}
                   >
                     <MenuItem value={10}>Zone 1</MenuItem>
                     <MenuItem value={20}>Zone 2</MenuItem>
