@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/header.js";
 import Footer from "../components/footer";
-
 // import { Link } from "react-router-dom";
 import faqVector from "../assets/img/faqVec.svg";
 // import Fade from "@mui/material/Fade";
@@ -120,7 +119,7 @@ export default function Faq() {
           </div>
           <a
             target="_blank"
-            href=""
+            href="/corporate"
             className="primary-btn"
             rel="noreferrer"
           >
