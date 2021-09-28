@@ -114,8 +114,7 @@ export default function Faq() {
             Make calls and browse the internet at the most affordable rates. All
             you need to do is register by clicking the “Register here” button
             below. 
-            <div>
-              
+            <div style={{marginTop: 15 + "px"}}>
               <b>
                 "This is a portal strictly for the Nigerian Police Officers as
                 approved by the Nigerian Police Force."
@@ -125,7 +124,7 @@ export default function Faq() {
 
           <a
             target="_blank"
-            href="/register"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfdVErwU7oSMoPlqUzqccJn_xZYUIMhJdSayChELuctLAEX0A/viewform"
             className="primary-btn"
             rel="noreferrer"
           >
