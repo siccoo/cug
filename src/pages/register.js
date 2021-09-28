@@ -8,6 +8,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import Header from "../components/header";
+import Footer from "../components/footer";
 export default function Register() {
   return (
     <div>
@@ -126,7 +127,7 @@ export default function Register() {
           <button type="submit" class="itex-form-submit-btn">Submit</button>
         </div>
       </div>
+      <Footer />
     </div>
-
   )
 }

@@ -107,19 +107,16 @@ export default function Faq() {
           <div className="itex-banner-text">
             <span className="banner-span-itex">ITEX</span> in collaboration with{" "}
             <span className="banner-span-mtn">MTN </span>brings our Police
-            officers the easiest and cheapest way to connect with family,
-            friends and colleagues
+            officers the easiest and cheapest way to connect with each other.
           </div>
           <div className="itex-banner-subtext">
             We’re giving back to our heroic officers the best way we know how,
             make calls and browse the internet at the cheapest rates. All you
-            need to do is register by clicking the “Register here” button below,
-            provide a brief detail and you and your family can begin to connect
-            easily.
+            need to do is register by clicking the “Register here” button below.
           </div>
           <a
             target="_blank"
-            href="/corporate"
+            href="/register"
             className="primary-btn"
             rel="noreferrer"
           >
