@@ -13,17 +13,28 @@ import Footer from "../components/footer";
 const initialValues = {
   firstName: "",
   lastName: "",
-
-}
+  phoneNumber: "",
+  gender: "",
+  email: "",
+  staffId: "",
+  zone: "",
+};
 
 export default function Register() {
+  const [values, setValues] = useState(initialValues);
 
-  const [values, setValues] = useState();
+  const handleInputChange = (e) => {
+    const [name, value] = e.target;
+    setValues({
+      ...values,
+      [name] : value
+    });
+  };
 
   return (
     <div>
       <Header />
-      <div class="itex-banner">
+      <div class="itex-banner2">
         <div class="itex-banner-cover">
           <div class="itex-banner-text">
             Nigerian Police Force CUG registration form
@@ -63,6 +74,9 @@ export default function Register() {
                   className="textfield-control"
                   id="outlined-basic"
                   label="First Name *"
+                  name="firstName"
+                  value={values.firstName}
+                  onChange={handleInputChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -71,6 +85,9 @@ export default function Register() {
                   className="textfield-control"
                   id="outlined-basic"
                   label="Last Name *"
+                  name="lastName"
+                  value={values.lastName}
+                  onChange={handleInputChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -79,6 +96,9 @@ export default function Register() {
                   className="textfield-control"
                   id="outlined-basic"
                   label="Phone Number *"
+                  name="phoneNumber"
+                  value={values.phoneNumber}
+                  onChange={handleInputChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -95,6 +115,9 @@ export default function Register() {
                   className="textfield-control"
                   id="outlined-basic"
                   label="Police Staff ID *"
+                  name="staffId"
+                  value={values.staffId}
+                  onChange={handleInputChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -103,6 +126,9 @@ export default function Register() {
                   className="textfield-control"
                   id="outlined-basic"
                   label="Email Address"
+                  name="email"
+                  value={values.email}
+                  onChange={handleInputChange}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -123,7 +149,9 @@ export default function Register() {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Zone"
-                    value="Zone"
+                    name="zone"
+                    value={values.zone}
+                    onChange={handleInputChange}
                   >
                     <MenuItem value={10}>Zone 1</MenuItem>
                     <MenuItem value={20}>Zone 2</MenuItem>
