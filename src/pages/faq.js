@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/header.js";
 import Footer from "../components/footer";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import faqVector from "../assets/img/faqVec.svg";
 // import Fade from "@mui/material/Fade";
 export default function Faq() {
@@ -122,14 +122,14 @@ export default function Faq() {
             </div>
           </div>
 
-          <a
-            target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfdVErwU7oSMoPlqUzqccJn_xZYUIMhJdSayChELuctLAEX0A/viewform"
+          <Link
+            // target="_blank"
+            to="/register"
             className="primary-btn"
-            rel="noreferrer"
+            // rel="noreferrer"
           >
             Register here
-          </a>
+          </Link>
         </div>
       </div>
       <div className="itex-faq wf-section">

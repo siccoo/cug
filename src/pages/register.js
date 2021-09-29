@@ -10,6 +10,8 @@ import InputLabel from "@mui/material/InputLabel";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
+import useForm from "../hooks/useForm";
+
 const initialValues = {
   firstName: "",
   lastName: "",
@@ -21,15 +23,11 @@ const initialValues = {
 };
 
 export default function Register() {
-  const [values, setValues] = useState(initialValues);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({
-      ...values,
-      [name]: value,
-    });
-  };
+  const {
+    values,
+    setValues,
+    handleChange
+  } = useForm(initialValues)
 
   return (
     <div>
@@ -60,11 +58,11 @@ export default function Register() {
                       control={<Radio style={{ color: "#132EBA" }} />}
                       label="Individual"
                     />
-                    <FormControlLabel
+                    {/* <FormControlLabel
                       value="male"
                       control={<Radio style={{ color: "#132EBA" }} />}
                       label="Corporation"
-                    />
+                    /> */}
                   </RadioGroup>
                 </FormControl>
               </div>
