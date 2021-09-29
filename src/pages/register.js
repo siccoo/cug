@@ -3,10 +3,12 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
+import FormGroup from '@mui/material/FormGroup';
 import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
+import Checkbox from '@mui/material/Checkbox';
 import Header from "../components/header";
 import Footer from "../components/footer";
 
@@ -43,21 +45,21 @@ export default function Register() {
               <div className="radio-div">
                 <FormControl component="fieldset">
                   <RadioGroup
-                    aria-label="gender"
-                    defaultValue="female"
-                    name="radio-buttons-group"
+                    name="radio-buttons-group gender"
+                    value={values.gender}
+                    onChange={handleChange}
                     row
                   >
                     <FormControlLabel
                       style={{ marginRight: "100px" }}
-                      value="female"
+                      value="individual"
                       control={<Radio style={{ color: "#132EBA" }} />}
                       label="Individual"
                     />
                     {/* <FormControlLabel
-                      value="male"
+                      value="corporate"
                       control={<Radio style={{ color: "#132EBA" }} />}
-                      label="Corporation"
+                      label="Corporate"
                     /> */}
                   </RadioGroup>
                 </FormControl>
@@ -168,6 +170,10 @@ export default function Register() {
                     <MenuItem value={30}>HQ 3</MenuItem>
                   </Select>
                 </FormControl> */}
+              
+                <FormGroup>
+                  <FormControlLabel control={<Checkbox defaultChecked />} label="Add phone numbers" />
+                </FormGroup>
               </div>
             </Form>
           </div>

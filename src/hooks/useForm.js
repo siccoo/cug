@@ -16,12 +16,6 @@ export function useForm(initialValues) {
   };
 }
 
-
 export function Form(props) {
-    return (
-        <form>
-            {props.children}
-        </form>
-    )
+  return <form>{props.children}</form>;
 }
-
