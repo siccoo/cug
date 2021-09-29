@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -10,7 +10,7 @@ import InputLabel from "@mui/material/InputLabel";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
-import useForm from "../hooks/useForm";
+import { useForm, Form } from "../hooks/useForm";
 
 const initialValues = {
   firstName: "",
@@ -23,11 +23,7 @@ const initialValues = {
 };
 
 export default function Register() {
-  const {
-    values,
-    setValues,
-    handleChange
-  } = useForm(initialValues)
+  const { values, setValues, handleChange } = useForm(initialValues);
 
   return (
     <div>
@@ -43,7 +39,7 @@ export default function Register() {
         <div class="itex-form">
           <div class="itex-form-header">Please enter your details below</div>
           <div>
-            <form>
+            <Form>
               <div className="radio-div">
                 <FormControl component="fieldset">
                   <RadioGroup
@@ -173,7 +169,7 @@ export default function Register() {
                   </Select>
                 </FormControl> */}
               </div>
-            </form>
+            </Form>
           </div>
           <button type="submit" class="itex-form-submit-btn">
             Submit

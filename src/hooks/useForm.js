@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useForm(initialValues) {
+export function useForm(initialValues) {
   const [values, setValues] = useState(initialValues);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,3 +15,13 @@ export default function useForm(initialValues) {
     handleChange,
   };
 }
+
+
+export function Form(props) {
+    return (
+        <form>
+            {props.children}
+        </form>
+    )
+}
+
