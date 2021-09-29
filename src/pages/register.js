@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import FormGroup from '@mui/material/FormGroup';
+import FormGroup from "@mui/material/FormGroup";
 import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
-import Checkbox from '@mui/material/Checkbox';
+import Checkbox from "@mui/material/Checkbox";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
 import { useForm, Form } from "../hooks/useForm";
+import AddScreen from "./AddScreen";
+
+// const genderItems = [
+//   {
+//     id: "individual",
+//     title: "Individual"
+//   },
+//   {
+//     id: "corporate",
+//     title: "Corporate"
+//   }
+// ]
 
 const initialValues = {
   firstName: "",
@@ -25,8 +37,18 @@ const initialValues = {
 };
 
 export default function Register() {
+  const [checked, setChecked] = useState(false);
   const { values, setValues, handleChange } = useForm(initialValues);
+  const [addScreen, setAddScreen] = useState(false);
+  const [views, setViews] = useState(true);
 
+  const goToNextPage = () => {
+    setViews(false)
+    setAddScreen(true)
+    setChecked(!checked);
+  };
+
+  const addComponent = addScreen ? <AddScreen /> : null;
   return (
     <div>
       <Header />
@@ -170,10 +192,19 @@ export default function Register() {
                     <MenuItem value={30}>HQ 3</MenuItem>
                   </Select>
                 </FormControl> */}
-              
-                <FormGroup>
-                  <FormControlLabel control={<Checkbox defaultChecked />} label="Add phone numbers" />
-                </FormGroup>
+                {views === true ? (
+                  <>
+                    <FormGroup>
+                      <FormControlLabel
+                        control={
+                          <Checkbox onClick={goToNextPage} checked={checked} />
+                        }
+                        label="Add phone numbers"
+                      />
+                    </FormGroup>
+                  </>
+                ) : null}
+                {addComponent}
               </div>
             </Form>
           </div>
