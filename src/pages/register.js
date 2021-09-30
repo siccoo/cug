@@ -37,6 +37,12 @@ export default function Register() {
     setChecked(!checked);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(values);
+  }
+
   const addComponent = addScreen ? <AddPhoneNumbers /> : null;
   return (
     <div>
@@ -166,7 +172,7 @@ export default function Register() {
               
             </Form>
           </div>
-          <button type="submit" class="itex-form-submit-btn">
+          <button type="submit" class="itex-form-submit-btn" onClick={handleSubmit}>
             Submit
           </button>
         </div>

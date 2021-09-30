@@ -9,8 +9,119 @@ const AddScreen = (props) => {
     <div>
       <Form>
         <div className="phonenumbers-form">
-          <FormControl>
+          <FormControl fullWidth>
             <FormLabel>Phone Number 1</FormLabel>
+            <TextField
+              className="textfield-control"
+              id="outlined-basic"
+              label="First Name *"
+              name="firstName"
+              value={values.firstName}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <TextField
+              className="textfield-control"
+              id="outlined-basic"
+              label="Last Name *"
+              name="lastName"
+              value={values.lastName}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <TextField
+              className="textfield-control"
+              id="outlined-basic"
+              label="Phone Number *"
+              name="phoneNumber"
+              value={values.phoneNumber}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <FormLabel>Phone Number 2</FormLabel>
+            <TextField
+              className="textfield-control"
+              id="outlined-basic"
+              label="First Name *"
+              name="firstName"
+              value={values.firstName}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <TextField
+              className="textfield-control"
+              id="outlined-basic"
+              label="Last Name *"
+              name="lastName"
+              value={values.lastName}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <TextField
+              className="textfield-control"
+              id="outlined-basic"
+              label="Phone Number *"
+              name="phoneNumber"
+              value={values.phoneNumber}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <FormLabel>Phone Number 3</FormLabel>
+            <TextField
+              className="textfield-control"
+              id="outlined-basic"
+              label="First Name *"
+              name="firstName"
+              value={values.firstName}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <TextField
+              className="textfield-control"
+              id="outlined-basic"
+              label="Last Name *"
+              name="lastName"
+              value={values.lastName}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <TextField
+              className="textfield-control"
+              id="outlined-basic"
+              label="Phone Number *"
+              name="phoneNumber"
+              value={values.phoneNumber}
+              onChange={handleChange}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <FormLabel>Phone Number 4</FormLabel>
             <TextField
               className="textfield-control"
               id="outlined-basic"
