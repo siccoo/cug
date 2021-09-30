@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormGroup from "@mui/material/FormGroup";
@@ -32,10 +30,9 @@ export default function Register(props) {
   const [addScreen, setAddScreen] = useState(false);
   const [views, setViews] = useState(true);
 
-  const zoneList = Object.keys(Zones).map(key => ({
-    name: key
-  }))
-
+  const zoneList = Object.keys(Zones).map((key) => ({
+    name: key,
+  }));
 
   const handleZonesSelect = (e) => {
     props.zoneVal(e.target.value);
@@ -44,13 +41,13 @@ export default function Register(props) {
     props.setNigeriaZones(zoneSel);
     props.setStates(stateSel);
     props.setNigeriaStates("");
-  }
+  };
 
   const handleStatesSelect = (e) => {
     props.stateVal(e.target.value);
     const stateSel = e.target.value;
     props.setNigeriaStates(stateSel);
-  }
+  };
 
   const goToNextPage = () => {
     setViews(false);
@@ -62,7 +59,7 @@ export default function Register(props) {
     e.preventDefault();
 
     console.log(values);
-  }
+  };
 
   const addComponent = addScreen ? <AddPhoneNumbers /> : null;
   return (
@@ -77,32 +74,19 @@ export default function Register(props) {
       </div>
       <div class="itex-form-section wf-section">
         <div class="itex-form">
-          <div class="itex-form-header">Please enter your details below
-          <p className="itex-form-subheader">Disclaimer: Any information inputted is confidential and not to be re-shared with any party.</p>
+          <div class="itex-form-header">
+            Please enter your details below
+            <p className="itex-form-subheader">
+              Disclaimer: Any information inputted is confidential and not to be
+              re-shared with any party.
+            </p>
           </div>
 
           <div>
             <Form>
-                {views === true ? (
-                  <>
-                    <div className="radio-div">
-                      <FormControl component="fieldset">
-                        <RadioGroup
-                          name="radio-buttons-group gender"
-                          value={values.gender}
-                          onChange={handleChange}
-                          row
-                        >
-                          <FormControlLabel
-                            style={{ marginRight: "100px" }}
-                            value="individual"
-                            control={<Radio style={{ color: "#132EBA" }} />}
-                            label="Individual"
-                          />
-                        </RadioGroup>
-                      </FormControl>
-                    </div>
-                    <div className="individual-form">
+              {views === true ? (
+                <>
+                  <div className="individual-form">
                     <TextField
                       className="textfield-control"
                       id="outlined-basic"
@@ -165,15 +149,23 @@ export default function Register(props) {
                       </InputLabel>
                       <Select
                         className="textfield-control"
+                        class={props.zonesClassName}
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         label="Zone"
+                        value={props.nigeriaZones}
+                        onChange={(e) => handleZonesSelect(e)}
                       >
+                        <MenuItem value="">
+                          {props.zonesPlaceholder || "Select Zones"}
+                        </MenuItem>
                         {zoneList.map((zone, key) => (
-                          <MenuItem key={key} value={zone.name}>{zone.name}</MenuItem>
+                          <MenuItem key={key} value={zone.name}>
+                            {zone.name}
+                          </MenuItem>
                         ))}
-                        <MenuItem value={10}>Zone 1</MenuItem>
-                        <MenuItem value={20}>Zone 2</MenuItem>
+
+                        {/* <MenuItem value={20}>Zone 2</MenuItem>
                         <MenuItem value={30}>Zone 3</MenuItem>
                         <MenuItem value={10}>Zone 1</MenuItem>
                         <MenuItem value={20}>Zone 2</MenuItem>
@@ -181,7 +173,7 @@ export default function Register(props) {
                         <MenuItem value={40}>Zone 4</MenuItem>
                         <MenuItem value={50}>Zone 5</MenuItem>
                         <MenuItem value={60}>Zone 6</MenuItem>
-                        <MenuItem value={70}>Zone 7</MenuItem>
+                        <MenuItem value={70}>Zone 7</MenuItem> */}
                       </Select>
                     </FormControl>
 
@@ -194,11 +186,13 @@ export default function Register(props) {
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         label="Zone"
-                        name="zone"
-                        value={values.zone}
-                        onChange={handleChange}
+                        onChange={(e) => {
+                          handleStatesSelect(e);
+                        }}
+                        class={props.statesClassName}
+                        value={props.nigeriaStates}
                       >
-                        
+                        {/* {props.areas.map(())} */}
                       </Select>
                     </FormControl>
 
@@ -210,14 +204,17 @@ export default function Register(props) {
                         label="Add phone numbers"
                       />
                     </FormGroup>
-                    </div>
-                  </>
-                ) : null}
-                {addComponent}
-              
+                  </div>
+                </>
+              ) : null}
+              {addComponent}
             </Form>
           </div>
-          <button type="submit" class="itex-form-submit-btn" onClick={handleSubmit}>
+          <button
+            type="submit"
+            class="itex-form-submit-btn"
+            onClick={handleSubmit}
+          >
             Submit
           </button>
         </div>
