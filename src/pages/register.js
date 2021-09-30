@@ -24,7 +24,8 @@ export default function Register() {
   const [areas, setStates] = useState([]);
   const [nigeriaZones, setNigeriaZones] = useState("");
   const [nigeriaStates, setNigeriaStates] = useState("");
-  const { values, setValues, handleChange, errors, setErrors } = useForm(initialValues);
+  const { values, setValues, handleChange, errors, setErrors } =
+    useForm(initialValues);
 
   const zoneList = Object.keys(Zones).map((key) => ({
     name: key,
@@ -45,8 +46,8 @@ export default function Register() {
       values.staffId > 5 ? "" : "Police Staff ID Max. characters 6";
 
     setErrors({
-      ...temp
-    })
+      ...temp,
+    });
   };
 
   const handleZonesSelect = (e) => {
@@ -63,9 +64,9 @@ export default function Register() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(values);
+    // e.preventDefault();
+    window.alert("testing...");
+    // console.log(values);
   };
 
   return (
@@ -89,7 +90,7 @@ export default function Register() {
           </div>
 
           <div>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <div className="individual-form">
                 <TextField
                   className="textfield-control"
@@ -188,11 +189,7 @@ export default function Register() {
               </div>
             </Form>
           </div>
-          <button
-            type="submit"
-            class="itex-form-submit-btn"
-            onClick={handleSubmit}
-          >
+          <button type="submit" class="itex-form-submit-btn">
             Submit
           </button>
         </div>
