@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const AddScreen = () => {
     return (
         <div>
-            This is Add Phone Numbers Component
+            <form>
+                
+            </form>
         </div>
     )
 }

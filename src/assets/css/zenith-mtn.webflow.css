@@ -274,6 +274,13 @@
   font-weight: 600;
 }
 
+.itex-form-subheader {
+  margin-top: 20px;
+  color: #050038;
+  font-size: 15px;
+  font-weight: normal;
+}
+
 .itex-form-submit-btn {
   display: -webkit-box;
   display: -webkit-flex;
