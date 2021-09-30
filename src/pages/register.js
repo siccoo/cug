@@ -11,6 +11,7 @@ import InputLabel from "@mui/material/InputLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import Zones from "./zones/Zones";
 
 import { useForm, Form } from "../hooks/useForm";
 import AddPhoneNumbers from "./AddPhoneNumbers";
@@ -25,11 +26,31 @@ const initialValues = {
   zone: "",
 };
 
-export default function Register() {
+export default function Register(props) {
   const [checked, setChecked] = useState(false);
   const { values, setValues, handleChange } = useForm(initialValues);
   const [addScreen, setAddScreen] = useState(false);
   const [views, setViews] = useState(true);
+
+  const zoneList = Object.keys(Zones).map(key => ({
+    name: key
+  }))
+
+
+  const handleZonesSelect = (e) => {
+    props.zoneVal(e.target.value);
+    const zoneSel = e.target.value;
+    const stateSel = zoneSel !== "" ? Zones[zoneSel] : "";
+    props.setNigeriaZones(zoneSel);
+    props.setStates(stateSel);
+    props.setNigeriaStates("");
+  }
+
+  const handleStatesSelect = (e) => {
+    props.stateVal(e.target.value);
+    const stateSel = e.target.value;
+    props.setNigeriaStates(stateSel);
+  }
 
   const goToNextPage = () => {
     setViews(false);
@@ -147,13 +168,37 @@ export default function Register() {
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         label="Zone"
+                      >
+                        {zoneList.map((zone, key) => (
+                          <MenuItem key={key} value={zone.name}>{zone.name}</MenuItem>
+                        ))}
+                        <MenuItem value={10}>Zone 1</MenuItem>
+                        <MenuItem value={20}>Zone 2</MenuItem>
+                        <MenuItem value={30}>Zone 3</MenuItem>
+                        <MenuItem value={10}>Zone 1</MenuItem>
+                        <MenuItem value={20}>Zone 2</MenuItem>
+                        <MenuItem value={30}>Zone 3</MenuItem>
+                        <MenuItem value={40}>Zone 4</MenuItem>
+                        <MenuItem value={50}>Zone 5</MenuItem>
+                        <MenuItem value={60}>Zone 6</MenuItem>
+                        <MenuItem value={70}>Zone 7</MenuItem>
+                      </Select>
+                    </FormControl>
+
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-simple-select-label">
+                        State
+                      </InputLabel>
+                      <Select
+                        className="textfield-control"
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        label="Zone"
                         name="zone"
                         value={values.zone}
                         onChange={handleChange}
                       >
-                        <MenuItem value={10}>Zone 1</MenuItem>
-                        <MenuItem value={20}>Zone 2</MenuItem>
-                        <MenuItem value={30}>Zone 3</MenuItem>
+                        
                       </Select>
                     </FormControl>
 
