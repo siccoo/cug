@@ -24,7 +24,7 @@ export default function Register() {
   const [areas, setStates] = useState([]);
   const [nigeriaZones, setNigeriaZones] = useState("");
   const [nigeriaStates, setNigeriaStates] = useState("");
-  const { values, setValues, handleChange } = useForm(initialValues);
+  const { values, setValues, handleChange, errors, setErrors } = useForm(initialValues);
 
   const zoneList = Object.keys(Zones).map((key) => ({
     name: key,
@@ -36,10 +36,17 @@ export default function Register() {
     temp.lastName = values.lastName ? "" : "Last Name Required";
     temp.email = /$|.+@.+..+/.test(values.email)
       ? ""
-      : "Email invalid. Please enter correct email";
+      : "The Email field is not a valid e-mail address.";
     temp.phoneNumber =
-      values.phoneNumber.length > 10 ? "" : "Minimum 11 digits";
-    temp.staffId = values.staffId;
+      values.phoneNumber.length > 10
+        ? ""
+        : "Enter a valid phone number, Maximum 11 digits";
+    temp.staffId =
+      values.staffId > 5 ? "" : "Police Staff ID Max. characters 6";
+
+    setErrors({
+      ...temp
+    })
   };
 
   const handleZonesSelect = (e) => {

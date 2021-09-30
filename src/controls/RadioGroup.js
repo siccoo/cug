@@ -8,7 +8,7 @@ export default function RadioGroup(props) {
   const { name, label, value, onChange, items } = props;
   return (
     <FormControl component="fieldset">
-      <RadioGroup name={name} value={value} onChange={onChange} row>
+      <MuiRadioGroup name={name} value={value} onChange={onChange} row>
         {items.map((item, index) => (
           <FormControlLabel
             style={{ marginRight: "100px" }}
@@ -23,7 +23,7 @@ export default function RadioGroup(props) {
                       control={<Radio style={{ color: "#132EBA" }} />}
                       label="Corporate"
                     /> */}
-      </RadioGroup>
+      </MuiRadioGroup>
     </FormControl>
   );
 }
