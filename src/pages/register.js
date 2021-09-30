@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
@@ -20,7 +20,10 @@ const initialValues = {
   zone: "",
 };
 
-export default function Register(props) {
+export default function Register() {
+  const [areas, setStates] = useState([]);
+  const [nigeriaZones, setNigeriaZones] = useState("");
+  const [nigeriaStates, setNigeriaStates] = useState("");
   const { values, setValues, handleChange } = useForm(initialValues);
 
   const zoneList = Object.keys(Zones).map((key) => ({
@@ -28,22 +31,28 @@ export default function Register(props) {
   }));
 
   const validate = () => {
-    
-  }
+    let temp = {};
+    temp.firstName = values.firstName ? "" : "First Name Required";
+    temp.lastName = values.lastName ? "" : "Last Name Required";
+    temp.email = /$|.+@.+..+/.test(values.email)
+      ? ""
+      : "Email invalid. Please enter correct email";
+    temp.phoneNumber =
+      values.phoneNumber.length > 10 ? "" : "Minimum 11 digits";
+    temp.staffId = values.staffId;
+  };
 
   const handleZonesSelect = (e) => {
-    props.zoneVal(e.target.value);
     const zoneSel = e.target.value;
     const stateSel = zoneSel !== "" ? Zones[zoneSel] : "";
-    props.setNigeriaZones(zoneSel);
-    props.setStates(stateSel);
-    props.setNigeriaStates("");
+    setNigeriaZones(zoneSel);
+    setStates(stateSel);
+    setNigeriaStates("");
   };
 
   const handleStatesSelect = (e) => {
-    props.stateVal(e.target.value);
     const stateSel = e.target.value;
-    props.setNigeriaStates(stateSel);
+    setNigeriaStates(stateSel);
   };
 
   const handleSubmit = (e) => {
@@ -135,16 +144,13 @@ export default function Register(props) {
                   <InputLabel id="demo-simple-select-label">Zone</InputLabel>
                   <Select
                     className="textfield-control"
-                    class={props.zonesClassName}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Zone"
-                    value={props.nigeriaZones}
+                    value={nigeriaZones}
                     onChange={(e) => handleZonesSelect(e)}
                   >
-                    <MenuItem value="">
-                      {props.zonesPlaceholder || "Select Zones"}
-                    </MenuItem>
+                    <MenuItem value="">Select Zones</MenuItem>
                     {zoneList.map((zone, key) => (
                       <MenuItem key={key} value={zone.name}>
                         {zone.name}
@@ -163,10 +169,13 @@ export default function Register(props) {
                     onChange={(e) => {
                       handleStatesSelect(e);
                     }}
-                    class={props.statesClassName}
-                    value={props.nigeriaStates}
+                    value={nigeriaStates}
                   >
-                    {/* {props.areas.map(())} */}
+                    {areas.map((state, key) => (
+                      <MenuItem key={key} value={state}>
+                        {state}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
               </div>
