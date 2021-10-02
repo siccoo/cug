@@ -1,72 +1,72 @@
 export default {
-    ZoneOne: [
+    Zone1: [
         "Jigawa",
         "Kano"
     ],
-    ZoneTwo: [
+    Zone2: [
         "Lagos",
         "Ogun"
     ],
-    ZoneThree: [
+    Zone3: [
         "Adamawa",
         "Taraba"
     ],
-    ZoneFour: [
+    Zone4: [
         "Benue",
         "Plateau",
         "Nasarawa"
     ],
-    ZoneFive: [
+    Zone5: [
         "Delta",
         "Edo"
     ],
-    ZoneSix: [
+    Zone6: [
         "Akwa-Ibom",
         "Cross-River"
     ],
-    ZoneSeven: [
+    Zone7: [
         "FCT",
         "Niger"
     ],
-    ZoneEight: [
+    Zone8: [
         "Kogi",
         "Kwara"
     ],
-    ZoneNine: [
+    Zone9: [
         "Abia",
         "Ebonyi",
         "Imo"
     ],
-    ZoneTen: [
+    Zone10: [
         "Kebbi",
         "Sokoto",
         "Zamfara"
     ],
-    ZoneEleven: [
+    Zone11: [
         "Osun",
         "Oyo"
     ],
-    ZoneTwelve: [
+    Zone12: [
         "Bauchi",
         "Gombe"
     ],
-    ZoneThirteen: [
+    Zone13: [
         "Anambra",
         "Enugu"
     ],
-    ZoneFourteen: [
+    Zone14: [
         "Katsina",
         "Kaduna"
     ],
-    ZoneFifteen: [
+    Zone15: [
         "Borno",
         "Yobe"
     ],
-    ZoneSixteen: [
+    Zone16: [
         "Bayelsa",
         "Rivers"
     ],
-    ZoneSeventeen: [
+    Zone17: [
         "Ekiti",
         "Ondo"
     ],

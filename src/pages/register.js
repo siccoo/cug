@@ -17,15 +17,13 @@ const initialValues = {
   gender: "",
   email: "",
   staffId: "",
-  zone: "",
 };
 
 export default function Register() {
   const [areas, setStates] = useState([]);
   const [nigeriaZones, setNigeriaZones] = useState("");
   const [nigeriaStates, setNigeriaStates] = useState("");
-  const { values, setValues, handleChange, errors, setErrors } =
-    useForm(initialValues);
+  const { values, setValues, handleChange, errors, setErrors } = useForm(initialValues);
 
   const zoneList = Object.keys(Zones).map((key) => ({
     name: key,
@@ -54,6 +52,7 @@ export default function Register() {
     const zoneSel = e.target.value;
     const stateSel = zoneSel !== "" ? Zones[zoneSel] : "";
     setNigeriaZones(zoneSel);
+    // console.log(zoneSel);
     setStates(stateSel);
     setNigeriaStates("");
   };
@@ -61,12 +60,13 @@ export default function Register() {
   const handleStatesSelect = (e) => {
     const stateSel = e.target.value;
     setNigeriaStates(stateSel);
+    // console.log(stateSel);
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    window.alert("testing...");
-    // console.log(values);
+    e.preventDefault();
+    // alert("testing...");
+    console.log(values, nigeriaStates, nigeriaZones);
   };
 
   return (
@@ -79,9 +79,9 @@ export default function Register() {
           </div>
         </div>
       </div>
-      <div class="itex-form-section wf-section">
-        <div class="itex-form">
-          <div class="itex-form-header">
+      <div className="itex-form-section wf-section">
+        <div className="itex-form">
+          <div className="itex-form-header">
             Please enter your details below
             <p className="itex-form-subheader">
               Disclaimer: Any information inputted is confidential and not to be
@@ -161,7 +161,7 @@ export default function Register() {
                     <MenuItem value="">Select Zones</MenuItem>
                     {zoneList.map((zone, key) => (
                       <MenuItem key={key} value={zone.name}>
-                        {zone.name}
+                        {zone.name.substring(0, 4)} {zone.name.slice(4)}
                       </MenuItem>
                     ))}
                   </Select>
@@ -187,11 +187,11 @@ export default function Register() {
                   </Select>
                 </FormControl>
               </div>
+              <button type="submit" className="itex-form-submit-btn">
+                Submit
+              </button>
             </Form>
           </div>
-          <button type="submit" class="itex-form-submit-btn">
-            Submit
-          </button>
         </div>
       </div>
       <Footer />
