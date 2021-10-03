@@ -7,7 +7,7 @@ import InputLabel from "@mui/material/InputLabel";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Zones from "./zones/Zones";
-
+import policeCugApi from "../utils/policeCugApi";
 import { useForm, Form } from "../hooks/useForm";
 
 const initialValues = {
@@ -64,9 +64,26 @@ export default function Register() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     // alert("testing...");
-    console.log(values, nigeriaStates, nigeriaZones);
+    // console.log(values, nigeriaStates, nigeriaZones);
+    const data = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      phoneNumber: values.phoneNumber,
+      staffId: values.staffId,
+      email: values.email,
+      zone: nigeriaZones,
+      state: nigeriaStates
+    }
+
+    return policeCugApi({
+      path: "https://localhost.8080",
+      payload: data,
+      method: "POST"
+    }).then((result) => {
+      console.log(result)
+    }).catch((err) => console.log(err));
   };
 
   return (
