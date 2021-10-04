@@ -138,7 +138,6 @@ export default function Register() {
                   id="outlined-basic"
                   label="Phone Number *"
                   name="phoneNumber"
-                  type="number"
                   value={values.phoneNumber}
                   onChange={handleChange}
                   InputLabelProps={{
