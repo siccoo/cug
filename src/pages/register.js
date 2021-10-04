@@ -114,6 +114,7 @@ export default function Register() {
                   id="outlined-basic"
                   label="First Name *"
                   name="firstName"
+                  type="text"
                   value={values.firstName}
                   onChange={handleChange}
                   InputLabelProps={{
@@ -125,6 +126,7 @@ export default function Register() {
                   id="outlined-basic"
                   label="Last Name *"
                   name="lastName"
+                  type="text"
                   value={values.lastName}
                   onChange={handleChange}
                   InputLabelProps={{
@@ -136,6 +138,7 @@ export default function Register() {
                   id="outlined-basic"
                   label="Phone Number *"
                   name="phoneNumber"
+                  type="number"
                   value={values.phoneNumber}
                   onChange={handleChange}
                   InputLabelProps={{
