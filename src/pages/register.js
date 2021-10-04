@@ -42,11 +42,17 @@ export default function Register() {
         : "Enter a valid phone number, Maximum 11 digits";
     temp.staffId =
       values.staffId > 5 ? "" : "Police Staff ID Max. characters 6";
+    temp.nigeriaStates = nigeriaStates.length != 0 ? "" : "Zone is required";
+    temp.nigeriaZones = nigeriaZones.length != 0 ? "" : "State is required";
 
     setErrors({
       ...temp,
-    });
+    })
+
+    return Object.values(temp).every(x => x == "")
   };
+
+
 
   const handleZonesSelect = (e) => {
     const zoneSel = e.target.value;
@@ -64,26 +70,31 @@ export default function Register() {
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     // alert("testing...");
     // console.log(values, nigeriaStates, nigeriaZones);
+   
     const data = {
       firstName: values.firstName,
       lastName: values.lastName,
       phoneNumber: values.phoneNumber,
-      staffId: values.staffId,
+      police_Staff_Id: values.staffId,
       email: values.email,
       zone: nigeriaZones,
       state: nigeriaStates
     }
 
     return policeCugApi({
-      path: "https://localhost.8080",
+      path: "https://localhost.5000/user",
       payload: data,
       method: "POST"
     }).then((result) => {
       console.log(result)
     }).catch((err) => console.log(err));
+
+    // if(validate()) {
+
+    // }
   };
 
   return (
@@ -117,6 +128,7 @@ export default function Register() {
                   type="text"
                   value={values.firstName}
                   onChange={handleChange}
+                  error={errors.firstName}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -129,6 +141,7 @@ export default function Register() {
                   type="text"
                   value={values.lastName}
                   onChange={handleChange}
+                  error={errors.lastName}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -140,6 +153,7 @@ export default function Register() {
                   name="phoneNumber"
                   value={values.phoneNumber}
                   onChange={handleChange}
+                  error={errors.phoneNumber}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -151,6 +165,7 @@ export default function Register() {
                   name="staffId"
                   value={values.staffId}
                   onChange={handleChange}
+                  error={errors.staffId}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -162,6 +177,7 @@ export default function Register() {
                   name="email"
                   value={values.email}
                   onChange={handleChange}
+                  error={errors.email}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -175,6 +191,7 @@ export default function Register() {
                     id="demo-simple-select"
                     label="Zone"
                     value={nigeriaZones}
+                    error={errors.nigeriaZones}
                     onChange={(e) => handleZonesSelect(e)}
                   >
                     <MenuItem value="">Select Zones</MenuItem>
@@ -197,6 +214,7 @@ export default function Register() {
                       handleStatesSelect(e);
                     }}
                     value={nigeriaStates}
+                    error={errors.nigeriaStates}
                   >
                     {areas.map((state, key) => (
                       <MenuItem key={key} value={state}>
