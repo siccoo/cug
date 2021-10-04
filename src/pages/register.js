@@ -23,7 +23,7 @@ export default function Register() {
   const [areas, setStates] = useState([]);
   const [nigeriaZones, setNigeriaZones] = useState("");
   const [nigeriaStates, setNigeriaStates] = useState("");
-  const { values, setValues, handleChange, errors, setErrors } = useForm(initialValues);
+  const { values, handleChange, errors, setErrors } = useForm(initialValues);
 
   const zoneList = Object.keys(Zones).map((key) => ({
     name: key,
@@ -77,7 +77,7 @@ export default function Register() {
     const data = {
       firstName: values.firstName,
       lastName: values.lastName,
-      phoneNumber: values.phoneNumber,
+      // phoneNumber: values.phoneNumber,
       police_Staff_Id: values.staffId,
       email: values.email,
       zone: nigeriaZones,
@@ -85,7 +85,7 @@ export default function Register() {
     }
 
     return policeCugApi({
-      path: "https://localhost.5000/user",
+      path: "http://localhost:5000/user/create_user",
       payload: data,
       method: "POST"
     }).then((result) => {
