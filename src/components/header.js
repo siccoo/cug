@@ -1,5 +1,5 @@
 import itexLogo from "../assets/img/itexlogo.svg";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -11,7 +11,7 @@ export default function Header() {
         {/* <div>
           <Link
             // target="_blank"
-            to="/register"
+            to="/success"
             className="primary-btn"
             // rel="noreferrer"
           >
