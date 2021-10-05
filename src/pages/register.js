@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import InputLabel from "@mui/material/InputLabel";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Zones from "./zones/Zones";
@@ -41,21 +37,20 @@ export default function Register() {
         : "Enter a valid phone number, Maximum 11 digits";
     temp.staffId =
       values.staffId > 5 ? "" : "Police Staff ID Max. characters 6";
-    temp.nigeriaStates = nigeriaStates.length != 0 ? "" : "Zone is required";
-    temp.nigeriaZones = nigeriaZones.length != 0 ? "" : "State is required";
+    temp.nigeriaStates = nigeriaStates.length !== 0 ? "" : "Zone is required";
+    temp.nigeriaZones = nigeriaZones.length !== 0 ? "" : "State is required";
 
     setErrors({
       ...temp,
     });
 
-    return Object.values(temp).every((x) => x == "");
+    return Object.values(temp).every((x) => x === "");
   };
 
   const handleZonesSelect = (e) => {
     const zoneSel = e.target.value;
     const stateSel = zoneSel !== "" ? Zones[zoneSel] : "";
     setNigeriaZones(zoneSel);
-    // console.log(zoneSel);
     setStates(stateSel);
     setNigeriaStates("");
   };
@@ -63,19 +58,16 @@ export default function Register() {
   const handleStatesSelect = (e) => {
     const stateSel = e.target.value;
     setNigeriaStates(stateSel);
-    // console.log(stateSel);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // alert("testing...");
-    // console.log(values, nigeriaStates, nigeriaZones);
 
     const data = {
       firstName: values.firstName,
       lastName: values.lastName,
       phoneNumber: values.phoneNumber,
-      police_Staff_Id: values.staffId,
+      policeStaffId: values.staffId,
       email: values.email,
       zone: nigeriaZones,
       state: nigeriaStates,
@@ -225,6 +217,7 @@ export default function Register() {
                     error={errors.nigeriaStates}
                     onChange={(e) => handleStatesSelect(e)}
                   >
+                    <option value=""></option>
                     {areas.map((state, key) => (
                       <option key={key} value={state}>
                         {state}
