@@ -84,8 +84,10 @@ export default function Register() {
       state: nigeriaStates
     }
 
+    console.log(data);
+
     return policeCugApi({
-      path: "/user/create_user",
+      path: "http://localhost:5000/user/create_user",
       payload: data,
       method: "POST"
     }).then((result) => {
@@ -96,6 +98,7 @@ export default function Register() {
 
     // }
   };
+
 
   return (
     <div>
@@ -123,7 +126,7 @@ export default function Register() {
                 <TextField
                   className="textfield-control"
                   id="outlined-basic"
-                  label="First Name *"
+                  label="First Name"
                   name="firstName"
                   type="text"
                   value={values.firstName}
@@ -136,7 +139,7 @@ export default function Register() {
                 <TextField
                   className="textfield-control"
                   id="outlined-basic"
-                  label="Last Name *"
+                  label="Last Name"
                   name="lastName"
                   type="text"
                   value={values.lastName}
@@ -149,7 +152,7 @@ export default function Register() {
                 <TextField
                   className="textfield-control"
                   id="outlined-basic"
-                  label="Phone Number *"
+                  label="Phone Number"
                   name="phoneNumber"
                   value={values.phoneNumber}
                   onChange={handleChange}
@@ -161,7 +164,7 @@ export default function Register() {
                 <TextField
                   className="textfield-control"
                   id="outlined-basic"
-                  label="Police Staff ID *"
+                  label="Police Staff ID"
                   name="staffId"
                   value={values.staffId}
                   onChange={handleChange}
