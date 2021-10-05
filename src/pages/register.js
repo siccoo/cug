@@ -20,7 +20,7 @@ export default function Register() {
   const [areas, setStates] = useState([]);
   const [nigeriaZones, setNigeriaZones] = useState("");
   const [nigeriaStates, setNigeriaStates] = useState("");
-  const { values, handleChange, errors, setErrors } = useForm(initialValues);
+  const { values, handleChange, setValues, errors, setErrors } = useForm(initialValues);
   const [views, setViews] = useState(true);
   const [viewsSuccess, setViewsSuccess] = useState(false);
   const [viewsFailure, setViewsFailure] = useState(false);
@@ -86,17 +86,40 @@ export default function Register() {
       method: "POST",
     })
       .then((result) => {
-        console.log(result);
+        // console.log(result);
+        setViewsSuccess(true);
+        setViews(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setViewsFailure(true);
+        setViews(false);
+      });
 
     // if(validate()) {
 
     // }
   };
 
-  const successComponent = viewsSuccess ? <Success /> : null;
-  const failureComponent = viewsFailure ? <Failure /> : null;
+  const backHome = () => {
+    setViews(true);
+    setViewsSuccess(false);
+    setViewsFailure(false);
+
+    setValues({
+      firstName: "",
+      lastName: "",
+      phoneNumber: "",
+      gender: "",
+      email: "",
+      staffId: "",
+    });
+
+    setNigeriaZones("");
+    setNigeriaStates("");
+  };
+
+  const successComponent = viewsSuccess ? <Success onClick={backHome} /> : null;
+  const failureComponent = viewsFailure ? <Failure onClick={backHome} /> : null;
 
   return (
     <div>

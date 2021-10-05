@@ -2,17 +2,9 @@ import React from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 
-const Success = () => {
+const Success = ({onClick}) => {
   return (
     <div>
-      <Header />
-      <div className="itex-banner2">
-        <div className="itex-banner-cover">
-          <div className="itex-banner-text">
-            Nigerian Police Force CUG registration form
-          </div>
-        </div>
-      </div>
       <div className="itex-form-section wf-section">
         <div className="itex-form">
           <div style={{ textAlign: "center" }}>
@@ -20,13 +12,12 @@ const Success = () => {
             <p className="itex-form-header" style={{ marginTop: 30 + "px" }}>
               Details successfully submitted
             </p>
-            <button type="submit" className="itex-form-submit-btn">
+            <button type="submit" onClick={onClick} className="itex-form-submit-btn">
               Return to Home page
             </button>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
