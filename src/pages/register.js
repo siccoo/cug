@@ -77,7 +77,7 @@ export default function Register() {
     const data = {
       firstName: values.firstName,
       lastName: values.lastName,
-      // phoneNumber: values.phoneNumber,
+      phoneNumber: values.phoneNumber,
       police_Staff_Id: values.staffId,
       email: values.email,
       zone: nigeriaZones,
@@ -85,7 +85,7 @@ export default function Register() {
     }
 
     return policeCugApi({
-      path: "http://localhost:5000/user/create_user",
+      path: "/user/create_user",
       payload: data,
       method: "POST"
     }).then((result) => {
