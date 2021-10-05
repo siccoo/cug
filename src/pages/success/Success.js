@@ -17,7 +17,9 @@ const Success = () => {
         <div className="itex-form">
           <div style={{ textAlign: "center" }}>
             <h1 className="itex-hand ">👍🏽</h1>
-            <p className="itex-form-header" style={{marginTop: 30 + "px"}}>Details successfully submitted</p>
+            <p className="itex-form-header" style={{ marginTop: 30 + "px" }}>
+              Details successfully submitted
+            </p>
             <button type="submit" className="itex-form-submit-btn">
               Return to Home page
             </button>

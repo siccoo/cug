@@ -259,6 +259,8 @@
   display: flex;
   padding-top: 0px;
   padding-bottom: 100px;
+  background-image: url("../img/mtn&itex-background-img.svg");
+  background-repeat: no-repeat;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;

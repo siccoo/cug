@@ -2,6 +2,8 @@ import React from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 
+import FailImg from "../../assets/img/failure-img.svg";
+
 const Failure = () => {
   return (
     <div>
@@ -16,8 +18,11 @@ const Failure = () => {
       <div className="itex-form-section wf-section">
         <div className="itex-form">
           <div style={{ textAlign: "center" }}>
-            <h1 className="itex-hand ">👍🏽</h1>
-            <p className="itex-form-header">Details successfully submitted</p>
+            <img src={FailImg} alt="failure-image" />
+            <p style={{ marginTop: 30 + "px" }}>
+              There seems to be an error submitting your details, please try
+              again in a few minutes
+            </p>
             <button type="submit" className="itex-form-submit-btn">
               Return to Home page
             </button>
