@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
@@ -47,12 +46,10 @@ export default function Register() {
 
     setErrors({
       ...temp,
-    })
+    });
 
-    return Object.values(temp).every(x => x == "")
+    return Object.values(temp).every((x) => x == "");
   };
-
-
 
   const handleZonesSelect = (e) => {
     const zoneSel = e.target.value;
@@ -73,7 +70,7 @@ export default function Register() {
     e.preventDefault();
     // alert("testing...");
     // console.log(values, nigeriaStates, nigeriaZones);
-   
+
     const data = {
       firstName: values.firstName,
       lastName: values.lastName,
@@ -81,24 +78,25 @@ export default function Register() {
       police_Staff_Id: values.staffId,
       email: values.email,
       zone: nigeriaZones,
-      state: nigeriaStates
-    }
+      state: nigeriaStates,
+    };
 
     console.log(data);
 
     return policeCugApi({
       path: "http://localhost:5000/user/create_user",
       payload: data,
-      method: "POST"
-    }).then((result) => {
-      console.log(result)
-    }).catch((err) => console.log(err));
+      method: "POST",
+    })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => console.log(err));
 
     // if(validate()) {
 
     // }
   };
-
 
   return (
     <div>
@@ -120,112 +118,120 @@ export default function Register() {
             </p>
           </div>
 
-          <div>
+          <div className="itex-form-box">
             <Form onSubmit={handleSubmit}>
               <div className="individual-form">
-                <TextField
-                  className="textfield-control"
-                  id="outlined-basic"
-                  label="First Name"
-                  name="firstName"
-                  type="text"
-                  value={values.firstName}
-                  onChange={handleChange}
-                  error={errors.firstName}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-                <TextField
-                  className="textfield-control"
-                  id="outlined-basic"
-                  label="Last Name"
-                  name="lastName"
-                  type="text"
-                  value={values.lastName}
-                  onChange={handleChange}
-                  error={errors.lastName}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-                <TextField
-                  className="textfield-control"
-                  id="outlined-basic"
-                  label="Phone Number"
-                  name="phoneNumber"
-                  value={values.phoneNumber}
-                  onChange={handleChange}
-                  error={errors.phoneNumber}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-                <TextField
-                  className="textfield-control"
-                  id="outlined-basic"
-                  label="Police Staff ID"
-                  name="staffId"
-                  value={values.staffId}
-                  onChange={handleChange}
-                  error={errors.staffId}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-                <TextField
-                  className="textfield-control"
-                  id="outlined-basic"
-                  label="Email Address"
-                  name="email"
-                  value={values.email}
-                  onChange={handleChange}
-                  error={errors.email}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                />
-
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Zone</InputLabel>
-                  <Select
+                <div>
+                  <label className="label">
+                    First Name <span>*</span>
+                  </label>
+                  <input
                     className="textfield-control"
-                    labelId="demo-simple-select-label"
+                    id="outlined-basic"
+                    name="firstName"
+                    type="text"
+                    value={values.firstName}
+                    onChange={handleChange}
+                    error={errors.firstName}
+                  />
+                </div>
+
+                <div>
+                  <label className="label">
+                    Last Name <span>*</span>
+                  </label>
+                  <input
+                    className="textfield-control"
+                    id="outlined-basic"
+                    name="lastName"
+                    type="text"
+                    value={values.lastName}
+                    onChange={handleChange}
+                    error={errors.lastName}
+                  />
+                </div>
+
+                <div>
+                  <label className="label">
+                    Phone Number <span>*</span>
+                  </label>
+                  <input
+                    className="textfield-control"
+                    id="outlined-basic"
+                    name="phoneNumber"
+                    type="tel"
+                    value={values.phoneNumber}
+                    onChange={handleChange}
+                    error={errors.phoneNumber}
+                  />
+                </div>
+                <div>
+                  <label className="label">
+                    Police Staff ID <span>*</span>
+                  </label>
+                  <input
+                    className="textfield-control"
+                    id="outlined-basic"
+                    name="staffId"
+                    type="text"
+                    value={values.staffId}
+                    onChange={handleChange}
+                    error={errors.staffId}
+                  />
+                </div>
+                <div>
+                  <label className="label">
+                    Email address <span>*</span>
+                  </label>
+                  <input
+                    className="textfield-control"
+                    id="outlined-basic"
+                    name="email"
+                    type="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    error={errors.email}
+                  />
+                </div>
+
+                <div>
+                  <label className="label">
+                    Zone <span>*</span>
+                  </label>
+                  <select
+                    className="textfield-control"
                     id="demo-simple-select"
-                    label="Zone"
                     value={nigeriaZones}
                     error={errors.nigeriaZones}
                     onChange={(e) => handleZonesSelect(e)}
                   >
-                    <MenuItem value="">Select Zones</MenuItem>
+                    <option value=""></option>
                     {zoneList.map((zone, key) => (
-                      <MenuItem key={key} value={zone.name}>
+                      <option key={key} value={zone.name}>
                         {zone.name.substring(0, 4)} {zone.name.slice(4)}
-                      </MenuItem>
+                      </option>
                     ))}
-                  </Select>
-                </FormControl>
+                  </select>
+                </div>
 
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">State</InputLabel>
-                  <Select
+                <div>
+                  <label className="label">
+                    State <span>*</span>
+                  </label>
+                  <select
                     className="textfield-control"
-                    labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    label="Zone"
-                    onChange={(e) => {
-                      handleStatesSelect(e);
-                    }}
                     value={nigeriaStates}
                     error={errors.nigeriaStates}
+                    onChange={(e) => handleStatesSelect(e)}
                   >
                     {areas.map((state, key) => (
-                      <MenuItem key={key} value={state}>
+                      <option key={key} value={state}>
                         {state}
-                      </MenuItem>
+                      </option>
                     ))}
-                  </Select>
-                </FormControl>
+                  </select>
+                </div>
               </div>
               <button type="submit" className="itex-form-submit-btn">
                 Submit

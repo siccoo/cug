@@ -272,7 +272,7 @@
 .itex-form {
   width: 50%;
   height: auto;
-  margin-top: -170px;
+  margin-top: -200px;
   padding: 53px 72px;
   border-radius: 10px;
   background-color: #fff;
@@ -457,9 +457,8 @@
 
   .itex-form {
     width: 100%;
-    margin-top: 8px;
-    padding-right: 12px;
-    padding-left: 12px;
+    padding-right: 25px;
+    padding-left: 25px;
   }
 
   .itex-form-header {
