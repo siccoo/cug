@@ -6,18 +6,18 @@ export default function Header() {
     <>
       <div className="itex-navbar">
         <div className="itex-brand">
-            <img src={itexLogo} loading="lazy" alt="" className="brand-img" />
+          <img src={itexLogo} loading="lazy" alt="" className="brand-img" />
         </div>
-        <div>
-            <Link
-              // target="_blank"
-              to="/register"
-              className="primary-btn"
-              // rel="noreferrer"
-            >
-              Registered user
-            </Link>
-          </div>
+        {/* <div>
+          <Link
+            // target="_blank"
+            to="/register"
+            className="primary-btn"
+            // rel="noreferrer"
+          >
+            Registered user
+          </Link>
+        </div> */}
       </div>
     </>
   );
