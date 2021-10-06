@@ -64,15 +64,13 @@ export default function Register() {
       state: nigeriaStates,
     };
 
-    console.log(data);
-
     return policeCugApi({
       path: "http://localhost:5000/user/create_user",
       payload: data,
       method: "POST",
     })
       .then((result) => {
-        // console.log(result);
+        console.log(result);
         setViewsSuccess(true);
         setViews(false);
         setIsButtonLoading(false);

@@ -21,14 +21,14 @@ export default function validateInfo(values) {
     // PHONE NUMBER FIELD VALIDATION
     if(!values.phoneNumber) {
         errors.phoneNumber = "Phone number required"
-    } else if(values.phoneNumber.length <= 11) {
+    } else if(values.phoneNumber.length <= 10) {
         errors.phoneNumber = "Enter a valid phone number, Maximum 11 digits"
     }
 
     // POLICE STAFF ID FIELD VALIDATION
     if(!values.staffId) {
         errors.staffId = "Police Staff ID required"
-    } else if(values.staffId < 6) {
+    } else if(values.staffId <= 5) {
         errors.staffId = "Police Staff ID Max. 6 Characters"
     }
 
