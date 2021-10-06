@@ -1,0 +1,70 @@
+@import "./assets/css/normalize.css";
+@import "./assets/css/webflow.css";
+@import "./assets/css/zenith-mtn.webflow.css";
+
+.app-body {
+  font-family: Poppins, sans-serif;
+}
+
+.radio-div {
+  margin-bottom: 50px;
+}
+
+.individual-form div {
+  position: relative;
+}
+
+.individual-form .label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 30px;
+  color: #050038;
+  background-color: #ffffff;
+  position: absolute;
+  pointer-events: none;
+  top: -14px;
+  left: 15px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .individual-form .label {
+    font-size: 12px;
+  }
+}
+
+.individual-form .label span {
+  color: #ff000098;
+}
+
+.individual-form small {
+  color: #ff000098;
+  top: -20px;
+  position: relative;
+}
+
+.textfield-control {
+  width: 100% !important;
+  padding: 0.9em 0.9em;
+  background: #ffffff;
+  border: 0.2px solid #132EBA;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-bottom: 30px !important;
+}
+
+.textfield-control:focus{
+  border: 0.2px solid #132EBA !important;
+  background: #fff !important;
+}
+
+.textfield-control:focus-within{
+  background: #fff !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
