@@ -4,7 +4,6 @@ import Footer from "../components/footer";
 import Zones from "./zones/Zones";
 import policeCugApi from "../utils/policeCugApi";
 import { useForm, Form } from "../hooks/useForm";
-import validate from "../hooks/validate/validationInfo";
 import Success from "./success/Success";
 import Failure from "./failure/Failure";
 import Loader from "../components/Loader";
@@ -28,8 +27,7 @@ export default function Register() {
   const [isButtonLoading, setIsButtonLoading] = useState(false);
 
   const { values, handleChange, setValues, errors, setErrors } = useForm(
-    initialValues,
-    validate
+    initialValues
   );
 
   const zoneList = Object.keys(Zones).map((key) => ({
@@ -49,38 +47,82 @@ export default function Register() {
     setNigeriaStates(stateSel);
   };
 
+  const handleValidation = () => {
+    let errors = {}
+    let formIsValid = true;
+
+    //Name
+    if (!values.firstName.trim()) {
+      formIsValid = false;
+      errors.firstName = "First name required"
+    }
+
+    // LAST NAME FIELD VALIDATION
+    if(!values.lastName.trim()) {
+      formIsValid = false;
+      errors.lastName = "Last name required"
+  }
+
+  // EMAIL FIELD VALIDATION
+  if(!values.email && !/\S+@\S+\.\S+/.test(values.email) ) {
+    formIsValid = false;
+      errors.email = "Invalid e-mail address"
+  } 
+
+  // PHONE NUMBER FIELD VALIDATION
+  if(!values.phoneNumber || values.phoneNumber.length <= 10 || values.phoneNumber.length > 11 ) {
+    formIsValid = false;
+errors.phoneNumber = "Enter a valid phone number, Maximum 11 digits"
+  } 
+
+  // POLICE STAFF ID FIELD VALIDATION
+  if(!values.staffId ||  values.staffId <= 5) {
+    formIsValid = false;
+    errors.staffId = "Police Staff ID Max. 6 Characters"
+  } 
+
+    setErrors(errors)
+    return formIsValid;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsButtonLoading(true);
-    setErrors(validate(values));
 
-    const data = {
-      firstName: values.firstName,
-      lastName: values.lastName,
-      phoneNumber: values.phoneNumber,
-      policeStaffId: values.staffId,
-      email: values.email,
-      zone: nigeriaZones,
-      state: nigeriaStates,
-    };
-
-    return policeCugApi({
-      path: "http://localhost:5000/user/create_user",
-      payload: data,
-      method: "POST",
-    })
-      .then((result) => {
-        console.log(result);
-        setViewsSuccess(true);
-        setViews(false);
-        setIsButtonLoading(false);
+    if (handleValidation()) {
+      const data = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        phoneNumber: values.phoneNumber,
+        policeStaffId: values.staffId,
+        email: values.email,
+        zone: nigeriaZones,
+        state: nigeriaStates,
+      };
+  
+      return policeCugApi({
+        path: "http://localhost:5000/user/create_user",
+        payload: data,
+        method: "POST",
       })
-      .catch((err) => {
-        setViewsFailure(true);
-        setViews(false);
-        setIsButtonLoading(false);
-      });
+        .then((result) => {
+          console.log(result);
+          setViewsSuccess(true);
+          setViews(false);
+          setIsButtonLoading(false);
+        })
+        .catch((err) => {
+          setViewsFailure(true);
+          setViews(false);
+          setIsButtonLoading(false);
+        });
+  
+    } else {
+      setIsButtonLoading(false);
+      alert("Form has errors.");
+    }
 
+    
     // if(validate()) {
 
     // }
@@ -172,6 +214,7 @@ export default function Register() {
                         name="phoneNumber"
                         type="tel"
                         value={values.phoneNumber}
+                        pattern="\/D/g,"
                         onChange={handleChange}
                       />
                       {errors.phoneNumber && (
