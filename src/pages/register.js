@@ -26,9 +26,8 @@ export default function Register() {
   const [viewsFailure, setViewsFailure] = useState(false);
   const [isButtonLoading, setIsButtonLoading] = useState(false);
 
-  const { values, handleChange, setValues, errors, setErrors } = useForm(
-    initialValues
-  );
+  const { values, handleChange, setValues, errors, setErrors } =
+    useForm(initialValues);
 
   const zoneList = Object.keys(Zones).map((key) => ({
     name: key,
@@ -48,42 +47,45 @@ export default function Register() {
   };
 
   const handleValidation = () => {
-    let errors = {}
+    let errors = {};
     let formIsValid = true;
 
     //Name
     if (!values.firstName.trim()) {
       formIsValid = false;
-      errors.firstName = "First name required"
+      errors.firstName = "First name required";
     }
 
     // LAST NAME FIELD VALIDATION
-    if(!values.lastName.trim()) {
+    if (!values.lastName.trim()) {
       formIsValid = false;
-      errors.lastName = "Last name required"
-  }
+      errors.lastName = "Last name required";
+    }
 
-  // EMAIL FIELD VALIDATION
-  if(!values.email && !/\S+@\S+\.\S+/.test(values.email) ) {
-    formIsValid = false;
-      errors.email = "Invalid e-mail address"
-  } 
+    // EMAIL FIELD VALIDATION
+    if (!values.email && !/\S+@\S+\.\S+/.test(values.email)) {
+      formIsValid = false;
+      errors.email = "Invalid e-mail address";
+    }
 
-  // PHONE NUMBER FIELD VALIDATION
-  if(!values.phoneNumber || values.phoneNumber.length <= 10 || values.phoneNumber.length > 11 ) {
-    formIsValid = false;
-errors.phoneNumber = "Enter a valid phone number, Maximum 11 digits"
-  } 
+    // PHONE NUMBER FIELD VALIDATION
+    if (
+      !values.phoneNumber ||
+      values.phoneNumber.length != 11
+    ) {
+      formIsValid = false;
+      errors.phoneNumber = "Enter a valid phone number, Maximum 11 digits";
+    }
 
-  // POLICE STAFF ID FIELD VALIDATION
-  if(!values.staffId ||  values.staffId <= 5) {
-    formIsValid = false;
-    errors.staffId = "Police Staff ID Max. 6 Characters"
-  } 
+    // POLICE STAFF ID FIELD VALIDATION
+    if (!values.staffId || values.staffId <= 5) {
+      formIsValid = false;
+      errors.staffId = "Police Staff ID Max. 6 Characters";
+    }
 
-    setErrors(errors)
+    setErrors(errors);
     return formIsValid;
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -99,9 +101,9 @@ errors.phoneNumber = "Enter a valid phone number, Maximum 11 digits"
         zone: nigeriaZones,
         state: nigeriaStates,
       };
-  
+
       return policeCugApi({
-        path: "http://localhost:5000/user/create_user",
+        path: process.env.REACT_APP_API_URL,
         payload: data,
         method: "POST",
       })
@@ -116,13 +118,11 @@ errors.phoneNumber = "Enter a valid phone number, Maximum 11 digits"
           setViews(false);
           setIsButtonLoading(false);
         });
-  
     } else {
       setIsButtonLoading(false);
       alert("Form has errors.");
     }
 
-    
     // if(validate()) {
 
     // }
@@ -297,7 +297,6 @@ errors.phoneNumber = "Enter a valid phone number, Maximum 11 digits"
                   >
                     {isButtonLoading ? <Loader dark={false} /> : "Submit"}
                   </button>
-                  
                 </Form>
               </div>
             </div>
