@@ -7,6 +7,7 @@ import { useForm, Form } from "../hooks/useForm";
 import validate from "../hooks/validate/validationInfo";
 import Success from "./success/Success";
 import Failure from "./failure/Failure";
+import Loader from "../components/Loader";
 
 const initialValues = {
   firstName: "",
@@ -21,10 +22,15 @@ export default function Register() {
   const [areas, setStates] = useState([]);
   const [nigeriaZones, setNigeriaZones] = useState("");
   const [nigeriaStates, setNigeriaStates] = useState("");
-  const { values, handleChange, setValues, errors, setErrors } = useForm(initialValues, validate);
   const [views, setViews] = useState(true);
   const [viewsSuccess, setViewsSuccess] = useState(false);
   const [viewsFailure, setViewsFailure] = useState(false);
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
+
+  const { values, handleChange, setValues, errors, setErrors } = useForm(
+    initialValues,
+    validate
+  );
 
   const zoneList = Object.keys(Zones).map((key) => ({
     name: key,
@@ -45,8 +51,8 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setErrors(validate(values))
+    setIsButtonLoading(true);
+    setErrors(validate(values));
 
     const data = {
       firstName: values.firstName,
@@ -69,10 +75,12 @@ export default function Register() {
         // console.log(result);
         setViewsSuccess(true);
         setViews(false);
+        setIsButtonLoading(false);
       })
       .catch((err) => {
         setViewsFailure(true);
         setViews(false);
+        setIsButtonLoading(false);
       });
 
     // if(validate()) {
@@ -124,7 +132,7 @@ export default function Register() {
               </div>
 
               <div className="itex-form-box">
-                <Form onSubmit={handleSubmit}>
+                <Form>
                   <div className="individual-form">
                     <div>
                       <label className="label">
@@ -168,7 +176,9 @@ export default function Register() {
                         value={values.phoneNumber}
                         onChange={handleChange}
                       />
-                      {errors.phoneNumber && <small>{errors.phoneNumber}</small>}
+                      {errors.phoneNumber && (
+                        <small>{errors.phoneNumber}</small>
+                      )}
                     </div>
                     <div>
                       <label className="label">
@@ -239,9 +249,14 @@ export default function Register() {
                       </select>
                     </div>
                   </div>
-                  <button type="submit" className="itex-form-submit-btn">
-                    Submit
+                  <button
+                    type="button"
+                    className="itex-form-submit-btn"
+                    onClick={handleSubmit}
+                  >
+                    {isButtonLoading ? <Loader dark={false} /> : "Submit"}
                   </button>
+                  
                 </Form>
               </div>
             </div>
