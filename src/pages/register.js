@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import Zones from "./zones/Zones";
 import policeCugApi from "../utils/policeCugApi";
 import { useForm, Form } from "../hooks/useForm";
+import validate from "../hooks/validate/validationInfo";
 import Success from "./success/Success";
 import Failure from "./failure/Failure";
 
@@ -20,7 +21,7 @@ export default function Register() {
   const [areas, setStates] = useState([]);
   const [nigeriaZones, setNigeriaZones] = useState("");
   const [nigeriaStates, setNigeriaStates] = useState("");
-  const { values, handleChange, setValues, errors, setErrors } = useForm(initialValues);
+  const { values, handleChange, setValues, errors, setErrors } = useForm(initialValues, validate);
   const [views, setViews] = useState(true);
   const [viewsSuccess, setViewsSuccess] = useState(false);
   const [viewsFailure, setViewsFailure] = useState(false);
@@ -28,29 +29,6 @@ export default function Register() {
   const zoneList = Object.keys(Zones).map((key) => ({
     name: key,
   }));
-
-  const validate = () => {
-    let temp = {};
-    temp.firstName = values.firstName ? "" : "First Name Required";
-    temp.lastName = values.lastName ? "" : "Last Name Required";
-    temp.email = /$|.+@.+..+/.test(values.email)
-      ? ""
-      : "The Email field is not a valid e-mail address.";
-    temp.phoneNumber =
-      values.phoneNumber.length > 10
-        ? ""
-        : "Enter a valid phone number, Maximum 11 digits";
-    temp.staffId =
-      values.staffId > 5 ? "" : "Police Staff ID Max. characters 6";
-    temp.nigeriaStates = nigeriaStates.length !== 0 ? "" : "Zone is required";
-    temp.nigeriaZones = nigeriaZones.length !== 0 ? "" : "State is required";
-
-    setErrors({
-      ...temp,
-    });
-
-    return Object.values(temp).every((x) => x === "");
-  };
 
   const handleZonesSelect = (e) => {
     const zoneSel = e.target.value;
@@ -67,6 +45,8 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setErrors(validate(values))
 
     const data = {
       firstName: values.firstName,
@@ -157,8 +137,8 @@ export default function Register() {
                         type="text"
                         value={values.firstName}
                         onChange={handleChange}
-                        error={errors.firstName}
                       />
+                      {errors.firstName && <small>{errors.firstName}</small>}
                     </div>
 
                     <div>
@@ -172,8 +152,8 @@ export default function Register() {
                         type="text"
                         value={values.lastName}
                         onChange={handleChange}
-                        error={errors.lastName}
                       />
+                      {errors.lastName && <small>{errors.lastName}</small>}
                     </div>
 
                     <div>
@@ -187,8 +167,8 @@ export default function Register() {
                         type="tel"
                         value={values.phoneNumber}
                         onChange={handleChange}
-                        error={errors.phoneNumber}
                       />
+                      {errors.phoneNumber && <small>{errors.phoneNumber}</small>}
                     </div>
                     <div>
                       <label className="label">
@@ -201,8 +181,8 @@ export default function Register() {
                         type="text"
                         value={values.staffId}
                         onChange={handleChange}
-                        error={errors.staffId}
                       />
+                      {errors.staffId && <small>{errors.staffId}</small>}
                     </div>
                     <div>
                       <label className="label">
@@ -215,8 +195,8 @@ export default function Register() {
                         type="email"
                         value={values.email}
                         onChange={handleChange}
-                        error={errors.email}
                       />
+                      {errors.email && <small>{errors.email}</small>}
                     </div>
 
                     <div>

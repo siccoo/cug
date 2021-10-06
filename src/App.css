@@ -37,6 +37,12 @@
   color: #ff000098;
 }
 
+.individual-form small {
+  color: #ff000098;
+  top: -20px;
+  position: relative;
+}
+
 .textfield-control {
   width: 100% !important;
   padding: 0.9em 0.9em;

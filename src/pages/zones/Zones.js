@@ -1,4 +1,4 @@
-export default {
+const zoneObj = {
     Zone1: [
         "Jigawa",
         "Kano"
@@ -71,3 +71,5 @@ export default {
         "Ondo"
     ],
 };
+
+export default zoneObj;
