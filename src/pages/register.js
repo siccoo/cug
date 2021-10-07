@@ -71,7 +71,7 @@ export default function Register() {
     // PHONE NUMBER FIELD VALIDATION
     if (
       !values.phoneNumber ||
-      values.phoneNumber.length != 11
+      values.phoneNumber.length !== 11
     ) {
       formIsValid = false;
       errors.phoneNumber = "Enter a valid phone number, Maximum 11 digits";
