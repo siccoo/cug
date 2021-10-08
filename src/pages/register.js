@@ -86,7 +86,7 @@ export default function Register() {
       if (!patterns.test(input["phoneNumber"])) {
         formIsValid = false;
         errors["phoneNumber"] = "Please enter only number.";
-      }else if(input["phoneNumber"].length != 11){
+      }else if(input["phoneNumber"].length !== 11){
         formIsValid = false;
         errors["phoneNumber"] = "Please enter valid phone number.";
       }
@@ -222,7 +222,7 @@ export default function Register() {
                         name="phoneNumber"
                         type="tel"
                         value={values.phoneNumber}
-                        pattern="\/D/g,"
+                        maxLength={11}
                         onChange={handleChange}
                       />
                       {errors.phoneNumber && (
@@ -239,13 +239,14 @@ export default function Register() {
                         name="staffId"
                         type="text"
                         value={values.staffId}
+                        maxLength={6}
                         onChange={handleChange}
                       />
                       {errors.staffId && <small>{errors.staffId}</small>}
                     </div>
                     <div>
                       <label className="label">
-                        Email address <span>*</span>
+                        Email address
                       </label>
                       <input
                         className="textfield-control"
