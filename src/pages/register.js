@@ -47,40 +47,49 @@ export default function Register() {
   };
 
   const handleValidation = () => {
+    let input = values;
     let errors = {};
     let formIsValid = true;
 
-    //Name
-    if (!values.firstName.trim()) {
+    if (!input["firstName"]) {
       formIsValid = false;
-      errors.firstName = "First name required";
+      errors["firstName"] = "First name required";
     }
 
-    // LAST NAME FIELD VALIDATION
-    if (!values.lastName.trim()) {
+    if (!input["lastName"]) {
       formIsValid = false;
-      errors.lastName = "Last name required";
+      errors["lastName"] = "Please enter your name.";
     }
 
-    // EMAIL FIELD VALIDATION
-    if (!values.email && !/\S+@\S+\.\S+/.test(values.email)) {
+    if (!input["email"]) {
       formIsValid = false;
-      errors.email = "Invalid e-mail address";
+      errors["email"] = "Please enter your email Address.";
     }
 
-    // PHONE NUMBER FIELD VALIDATION
-    if (
-      !values.phoneNumber ||
-      values.phoneNumber.length !== 11
-    ) {
-      formIsValid = false;
-      errors.phoneNumber = "Enter a valid phone number, Maximum 11 digits";
+    if (typeof input["email"] !== "undefined") {
+        
+      var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+      if (!pattern.test(input["email"])) {
+        formIsValid = false;
+        errors["email"] = "Please enter valid email address.";
+      }
     }
 
-    // POLICE STAFF ID FIELD VALIDATION
-    if (!values.staffId || values.staffId <= 5) {
+    if (!input["phoneNumber"]) {
       formIsValid = false;
-      errors.staffId = "Police Staff ID Max. 6 Characters";
+      errors["phoneNumber"] = "Please enter your phone number.";
+    }
+
+    if (typeof input["phoneNumber"] !== "undefined") {
+        
+      var patterns = new RegExp(/^[0-9\b]+$/);
+      if (!patterns.test(input["phoneNumber"])) {
+        formIsValid = false;
+        errors["phoneNumber"] = "Please enter only number.";
+      }else if(input["phoneNumber"].length != 11){
+        formIsValid = false;
+        errors["phoneNumber"] = "Please enter valid phone number.";
+      }
     }
 
     setErrors(errors);
@@ -120,7 +129,6 @@ export default function Register() {
         });
     } else {
       setIsButtonLoading(false);
-      alert("Form has errors.");
     }
 
     // if(validate()) {
