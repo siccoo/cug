@@ -196,7 +196,6 @@ export default function Register() {
                       />
                       {errors.firstName && <small>{errors.firstName}</small>}
                     </div>
-                    { process.env.REACT_APP_API_URL }
                     <div>
                       <label className="label">
                         Last Name <span>*</span>
