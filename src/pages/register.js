@@ -86,7 +86,7 @@ export default function Register() {
       if (!patterns.test(input["phoneNumber"])) {
         formIsValid = false;
         errors["phoneNumber"] = "Please enter only number.";
-      }else if(input["phoneNumber"].length != 11){
+      }else if(input["phoneNumber"].length !== 11){
         formIsValid = false;
         errors["phoneNumber"] = "Please enter valid phone number.";
       }
