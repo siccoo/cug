@@ -223,6 +223,7 @@ export default function Register() {
                         value={values.phoneNumber}
                         pattern="\/D/g,"
                         onChange={handleChange}
+                        maxLength="11"
                       />
                       {errors.phoneNumber && (
                         <small>{errors.phoneNumber}</small>
@@ -239,12 +240,13 @@ export default function Register() {
                         type="text"
                         value={values.staffId}
                         onChange={handleChange}
+                        maxLength="6"
                       />
                       {errors.staffId && <small>{errors.staffId}</small>}
                     </div>
                     <div>
                       <label className="label">
-                        Email address <span>*</span>
+                        Email address
                       </label>
                       <input
                         className="textfield-control"
