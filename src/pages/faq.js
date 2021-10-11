@@ -89,7 +89,6 @@ export default function Faq() {
     },
   ];
 
-  const [faqs, setFaqs] = useState(faq_list);
   const [accordion, setAccordion] = useState(0);
 
   function toggleAccordion(id) {
@@ -140,7 +139,7 @@ export default function Faq() {
           </div>
         </div>
         <div className="faq-row">
-          {faqs.map((item, index) => {
+          {faq_list.map((item, index) => {
             return (
               <div
                 key={item.id}
