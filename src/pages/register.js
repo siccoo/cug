@@ -196,7 +196,6 @@ export default function Register() {
                       />
                       {errors.firstName && <small>{errors.firstName}</small>}
                     </div>
-
                     <div>
                       <label className="label">
                         Last Name <span>*</span>
@@ -224,6 +223,7 @@ export default function Register() {
                         value={values.phoneNumber}
                         maxLength={11}
                         onChange={handleChange}
+                        maxLength="11"
                       />
                       {errors.phoneNumber && (
                         <small>{errors.phoneNumber}</small>
@@ -241,6 +241,7 @@ export default function Register() {
                         value={values.staffId}
                         maxLength={6}
                         onChange={handleChange}
+                        maxLength="6"
                       />
                       {errors.staffId && <small>{errors.staffId}</small>}
                     </div>
