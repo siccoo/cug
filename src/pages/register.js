@@ -117,7 +117,7 @@ export default function Register() {
         method: "POST",
       })
         .then((result) => {
-          // console.log(result);
+          console.log(result);
           setViewsSuccess(true);
           setViews(false);
           setIsButtonLoading(false);
